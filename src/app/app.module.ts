@@ -10,6 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, SharedModule, CountryModule],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, AppRoutingModule],
 })
 export class AppModule {}
