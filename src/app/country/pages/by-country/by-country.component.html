@@ -19,25 +19,35 @@
 <div class="alert alert-danger" *ngIf="isError">
   Nohting was found for the term "{{ searchTerm }}"
 </div>
-<div class="row" *ngIf="!isError">
+<div class="row" *ngIf="countries.length > 0">
   <div class="col">
-    <table class="table table-hover">
+    <table
+      class="table table-hover"
+      *ngFor="let country of countries; let i = index"
+    >
       <thead>
         <tr>
           <th>#</th>
           <th>Flag</th>
           <th>Name</th>
           <th>Population</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>flag</td>
-          <td>Name</td>
-          <td>1000000000</td>
+          <td>{{ i + 1 }}</td>
           <td>
-            <a href="/country/:id">See</a>
+            <img
+              class="small-flag"
+              [src]="country.flag"
+              alt="{{ country.name }}'s flag"
+            />
+          </td>
+          <td>{{ country.name }}</td>
+          <td>{{ country.population | number }}</td>
+          <td>
+            <a [routerLink]="['/country', country.alpha2Code]">See more</a>
           </td>
         </tr>
       </tbody>
