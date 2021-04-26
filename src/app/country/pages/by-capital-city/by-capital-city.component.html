@@ -1,1 +1,21 @@
-<p>by-capital-city works!</p>
+<h2>Search By Capital City</h2>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <app-countries-input
+      (onSearch)="search($event)"
+      (onDebounce)="showSuggestions($event)"
+      inputPlaceholder="Search a capital city"
+    ></app-countries-input>
+  </div>
+</div>
+<hr />
+<div class="alert alert-danger" *ngIf="isError">
+  Nohting was found for the term "{{ searchTerm }}"
+</div>
+<div class="row" *ngIf="countries.length > 0">
+  <div class="col">
+    <app-countries-table [countries]="countries"></app-countries-table>
+  </div>
+</div>

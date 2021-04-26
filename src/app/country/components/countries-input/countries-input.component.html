@@ -6,6 +6,6 @@
     class="form-control"
     [(ngModel)]="searchTerm"
     (input)="keyPressed()"
-    placeholder="Search country"
+    [placeholder]="inputPlaceholder"
   />
 </form>

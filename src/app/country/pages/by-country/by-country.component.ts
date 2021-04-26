@@ -18,7 +18,7 @@ export class ByCountryComponent {
     this.isError = false;
     this.searchTerm = searchTerm;
 
-    this.countryService.searchCountry(this.searchTerm).subscribe(
+    this.countryService.searchCountryByName(this.searchTerm).subscribe(
       (countries) => {
         this.countries = countries;
       },
