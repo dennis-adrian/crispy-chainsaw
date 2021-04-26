@@ -28,4 +28,8 @@ export class ByCountryComponent {
       }
     );
   }
+
+  showSuggestions(event: any) {
+    this.isError = false;
+  }
 }

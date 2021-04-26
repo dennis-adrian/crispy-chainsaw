@@ -5,6 +5,7 @@
     name="searchTerm"
     class="form-control"
     [(ngModel)]="searchTerm"
+    (input)="keyPressed()"
     placeholder="Search country"
   />
 </form>
