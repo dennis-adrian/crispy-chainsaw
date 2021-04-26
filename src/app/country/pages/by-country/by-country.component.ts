@@ -7,13 +7,22 @@ import { CountryService } from '../../services/country.service';
   styles: [],
 })
 export class ByCountryComponent {
-  searchTerm: string = '';
+  searchTerm = '';
+  isError = false;
 
   constructor(private countryService: CountryService) {}
 
   search() {
-    this.countryService.searchCountry(this.searchTerm).subscribe((res) => {
-      console.log(res);
-    });
+    this.isError = false;
+    this.countryService.searchCountry(this.searchTerm).subscribe(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        this.isError = true;
+        console.log('Error');
+        console.info(error);
+      }
+    );
   }
 }
