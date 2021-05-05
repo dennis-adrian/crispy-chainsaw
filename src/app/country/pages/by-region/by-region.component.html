@@ -9,9 +9,14 @@
     <button
       *ngFor="let region of regions"
       [class]="getClassCSS(region)"
-      (click)="activateRegion(region)"
+      (click)="getCountriesByRegion(region)"
     >
       {{ region | titlecase }}
     </button>
+  </div>
+</div>
+<div class="row" *ngIf="countries.length > 0">
+  <div class="col">
+    <app-countries-table [countries]="countries"></app-countries-table>
   </div>
 </div>
